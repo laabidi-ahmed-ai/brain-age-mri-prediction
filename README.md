@@ -5,6 +5,17 @@ Developed as part of a machine learning project at **Esprit School of Engineerin
 
 ---
 
+## Quick Summary
+
+- **Problem:** predict chronological age from OASIS brain MRI data.
+- **Best model:** EfficientNet-B0 with transfer learning and controlled fine-tuning.
+- **Best metric:** validation Subject MAE of **~4.34 years**.
+- **Pipeline:** two-stage workflow (fast model screening, then focused refinement).
+- **Explainability:** Grad-CAM highlights anatomically meaningful brain regions.
+- **Status:** reproducible research prototype in notebook format.
+
+---
+
 ## Problem Overview
 
 The goal is to predict **chronological age** from MRI brain scans.
@@ -87,7 +98,30 @@ This allows faster convergence and better performance compared to training from 
 - Best validation **Subject MAE: ~4.34 years**
 - EfficientNet-B0 consistently provided the strongest performance after refinement.
 - Subject-level aggregation provided a stable and meaningful assessment compared to slice-only evaluation.
+
 This level of error suggests that the model captures meaningful age-related structural patterns in brain MRI data.
+
+---
+
+## Results Snapshot
+
+| Experiment | Setup | Best Validation Subject MAE (years) | Notes |
+|---|---|---:|---|
+| Notebook 1 (scaled selection stage) | Best selected architecture retrained on 12 discs | ~4.59 (test subject MAE) | Screening-to-scaling workflow confirms architecture choice |
+| Version 1 | EfficientNet-B0, full fine-tuning, LR = 1e-4 | 4.4696 | Strong baseline |
+| Version 2 | EfficientNet-B0, full fine-tuning, LR = 1e-5 | 4.6927 | Learning too slow under fixed epoch budget |
+| Version 3 | EfficientNet-B0, dropout = 0.3 | 4.5125 | Improved regularization behavior, slightly above baseline |
+| Version 4 | EfficientNet-B0, frozen backbone | 16.6359 | Poor adaptation for this MRI domain |
+| Final tuned configuration | EfficientNet-B0, dropout = 0.3, LR = 5e-5 | **4.3391** | Best reported validation result |
+
+---
+
+## Limitations
+
+- Experiments are centered on a single dataset family (OASIS), so cross-site generalization is still limited.
+- The pipeline uses 2D slice-based modeling, which can miss full 3D spatial context.
+- External validation and broader demographic coverage are needed before clinical-level deployment.
+- Explainability is qualitative (Grad-CAM) and should be complemented with stronger quantitative validation.
 
 ---
 
