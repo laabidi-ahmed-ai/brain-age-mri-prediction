@@ -137,7 +137,7 @@ To improve trust and interpretability, the project uses **Grad-CAM**:
 
 Example Grad-CAM visualization showing model attention on an MRI slice:
 
-![Grad-CAM Example](image/gradcam_example.png)
+![Grad-CAM Example](image/gradcam_example.png.png)
 
 *The model focuses on central brain regions associated with structural aging patterns, while ignoring irrelevant background.*
 
