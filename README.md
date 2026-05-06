@@ -13,7 +13,7 @@ Developed as part of a machine learning project at **Esprit School of Engineerin
 - **Pipeline:** two-stage workflow (fast model screening, then focused refinement).
 - **Explainability:** Grad-CAM highlights anatomically meaningful brain regions.
 - **Status:** reproducible research prototype in notebook format.
-- **Note :**See workflow diagrams below for experiment logic.
+- **Note :** See workflow diagrams below for experiment logic.
 
 ---
 
