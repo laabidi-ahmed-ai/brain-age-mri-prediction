@@ -13,6 +13,7 @@ Developed as part of a machine learning project at **Esprit School of Engineerin
 - **Pipeline:** two-stage workflow (fast model screening, then focused refinement).
 - **Explainability:** Grad-CAM highlights anatomically meaningful brain regions.
 - **Status:** reproducible research prototype in notebook format.
+- **Note :**See workflow diagrams below for experiment logic.
 
 ---
 
@@ -20,24 +21,40 @@ Developed as part of a machine learning project at **Esprit School of Engineerin
 
 The goal is to predict **chronological age** from MRI brain scans.
 
-Why this matters:
-- Brain structure changes with age.
-- A reliable brain-age model can help summarize complex MRI patterns into a single, interpretable value.
 
 ---
+
+## Clinical Motivation
+
+Brain aging reflects gradual structural changes across the lifespan and is closely linked to neurodegenerative disorders such as Alzheimer’s disease. Predicting **brain age** from MRI helps summarize complex brain anatomy into a single interpretable biomarker.
+
+## Experimental Workflow (Visual Summary)
+
+1. **Notebook 1:** model screening on one-disc subset, then scale-up on 12-disc dataset.
+2. **Notebook 2:** EfficientNet-B0 strategy comparison and focused tuning to final best MAE.
+
+These diagrams summarize the experimental logic and refinement pipeline used throughout the project.
+
+![Notebook 1 Workflow](image/Diagram_model_selection_experiments.png)
+
+*Notebook 1: fast architecture selection, then full-data retraining.*
+
+![Notebook 2 Workflow](image/Diagram_efficientnet_refinement.png)
+
+*Notebook 2: EfficientNet-B0 refinement from 4.59 to 4.3391 Subject MAE.*
 
 ## Project Structure
 
 ```text
 .
-├── final-disc-all-last.ipynb
-└── the-4-versions-with-ex-ai-last.ipynb
+├── 01_model_selection_experiments.ipynb
+└── 02_efficientnet_refinement.ipynb
 ```
 
 Notebook roles:
-- `final-disc-all-last.ipynb`  
+- `01_model_selection_experiments.ipynb`  
   Model selection notebook (architecture comparison on a smaller subset, then scaling strategy).
-- `the-4-versions-with-ex-ai-last.ipynb`  
+- `02_efficientnet_refinement.ipynb`  
   EfficientNet-B0 refinement notebook (training strategy experiments + controlled hyperparameter tuning).
 
 Grad-CAM visualizations are generated using the best saved model checkpoint (.pth), corresponding to the lowest validation error.
@@ -46,7 +63,7 @@ Grad-CAM visualizations are generated using the best saved model checkpoint (.pt
 
 ## Methodology
 
-MRI volumes are converted into 2D axial slices, which are used as inputs to the convolutional neural networks.
+3D MRI volumes are converted into 2D axial slices, which are used as input to the convolutional neural networks.
 
 ### 1) Model Selection (Fast Comparison Stage)
 
@@ -137,7 +154,7 @@ To improve trust and interpretability, the project uses **Grad-CAM**:
 
 Example Grad-CAM visualization showing model attention on an MRI slice:
 
-![Grad-CAM Example](image/gradcam_example.png.png)
+![Grad-CAM Example](image/gradcam_example.png)
 
 *The model focuses on central brain regions associated with structural aging patterns, while ignoring irrelevant background.*
 
@@ -179,8 +196,8 @@ jupyter notebook
 ```
 
 Recommended order:
-1. `final-disc-all-last.ipynb` (model selection)
-2. `the-4-versions-with-ex-ai-last.ipynb` (EfficientNet refinement and final tuning)
+1. `01_model_selection_experiments.ipynb` (model selection)
+2. `02_efficientnet_refinement.ipynb` (EfficientNet refinement and final tuning)
 
 ---
 
