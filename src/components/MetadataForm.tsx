@@ -29,7 +29,9 @@ export function MetadataForm({
   return (
     <div className="grid grid-cols-2 gap-4">
       <div className="space-y-1.5">
-        <Label htmlFor="pid" className="text-xs">Patient ID</Label>
+        <Label htmlFor="pid" className="text-xs">
+          Patient ID
+        </Label>
         <Input
           id="pid"
           placeholder="P-00000"
@@ -38,7 +40,9 @@ export function MetadataForm({
         />
       </div>
       <div className="space-y-1.5">
-        <Label htmlFor="age" className="text-xs">Age</Label>
+        <Label htmlFor="age" className="text-xs">
+          Age
+        </Label>
         <Input
           id="age"
           type="number"
@@ -50,7 +54,9 @@ export function MetadataForm({
       <div className="space-y-1.5 col-span-2 sm:col-span-1">
         <Label className="text-xs">Sex</Label>
         <Select value={value.sex} onValueChange={(v) => upd({ sex: v })}>
-          <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
+          <SelectTrigger>
+            <SelectValue placeholder="Select" />
+          </SelectTrigger>
           <SelectContent>
             <SelectItem value="F">Female</SelectItem>
             <SelectItem value="M">Male</SelectItem>
@@ -59,7 +65,9 @@ export function MetadataForm({
         </Select>
       </div>
       <div className="space-y-1.5 col-span-2">
-        <Label htmlFor="email" className="text-xs">Patient email (optional)</Label>
+        <Label htmlFor="email" className="text-xs">
+          Patient email (optional)
+        </Label>
         <Input
           id="email"
           type="email"
@@ -70,7 +78,9 @@ export function MetadataForm({
         />
       </div>
       <div className="space-y-1.5 col-span-2">
-        <Label htmlFor="notes" className="text-xs">Clinical notes (optional)</Label>
+        <Label htmlFor="notes" className="text-xs">
+          Clinical notes (optional)
+        </Label>
         <Textarea
           id="notes"
           rows={3}

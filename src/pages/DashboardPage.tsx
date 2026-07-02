@@ -67,10 +67,14 @@ export function DashboardPage() {
         <div className="flex items-end justify-between mb-4">
           <div>
             <h3 className="text-lg font-semibold tracking-tight">7 Axes</h3>
-            <p className="text-sm text-muted-foreground">Pick an axis to upload data and run analysis.</p>
+            <p className="text-sm text-muted-foreground">
+              Pick an axis to upload data and run analysis.
+            </p>
           </div>
           <Button asChild variant="ghost" size="sm" className="gap-1">
-            <Link to="/axes">View all <ArrowRight className="h-3.5 w-3.5" /></Link>
+            <Link to="/axes">
+              View all <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </Button>
         </div>
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -86,7 +90,9 @@ export function DashboardPage() {
           <div className="flex items-end justify-between mb-3">
             <h3 className="text-lg font-semibold tracking-tight">Recent cases</h3>
             <Button asChild variant="ghost" size="sm" className="gap-1">
-              <Link to="/cases">All cases <ArrowRight className="h-3.5 w-3.5" /></Link>
+              <Link to="/cases">
+                All cases <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
             </Button>
           </div>
           <RecentCasesTable cases={MOCK_CASES.slice(0, 4)} />

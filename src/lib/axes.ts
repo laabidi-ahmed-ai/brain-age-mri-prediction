@@ -11,6 +11,15 @@ import {
 
 export type AxisInputType = "MRI" | "fMRI" | "Video" | "EEG / Signal";
 
+export type AxisSlug =
+  | "alzheimer-dementia"
+  | "parkinson-atypical"
+  | "cerebellar-dysfunction"
+  | "brain-aging"
+  | "functional-connectivity"
+  | "neuromotor-video"
+  | "epilepsy-network";
+
 export type AxisId =
   | "axis1-alzheimer-dementia"
   | "axis2-parkinson-atypical"
@@ -23,7 +32,7 @@ export type AxisId =
 export interface AxisDef {
   id: AxisId;
   number: number;
-  slug: string;
+  slug: AxisSlug;
   title: string;
   shortTitle: string;
   purpose: string;

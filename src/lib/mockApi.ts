@@ -136,9 +136,7 @@ function buildResultFor(req: AnalysisRequest): AnalysisResult {
           { region: "Midbrain", side: "B", contribution: 0.49, note: "Hummingbird sign absent" },
           { region: "Pons", side: "B", contribution: 0.31 },
         ],
-        metrics: [
-          { label: "Midbrain/Pons ratio", value: "0.61", hint: "Within PD-typical range" },
-        ],
+        metrics: [{ label: "Midbrain/Pons ratio", value: "0.61", hint: "Within PD-typical range" }],
       };
 
     case "axis3-cerebellar-dysfunction":
@@ -156,7 +154,7 @@ function buildResultFor(req: AnalysisRequest): AnalysisResult {
         regions: [
           { region: "Lobule VI", side: "B", contribution: 0.72 },
           { region: "Crus I", side: "L", contribution: 0.58 },
-          { region: "Vermis", side: "B", contribution: 0.40 },
+          { region: "Vermis", side: "B", contribution: 0.4 },
           { region: "Dentate nucleus", side: "R", contribution: 0.33 },
         ],
         metrics: [{ label: "Cerebellar score", value: "0.66 / 1.0" }],

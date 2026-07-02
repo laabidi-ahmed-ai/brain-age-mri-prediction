@@ -13,8 +13,14 @@ export function NeuralBackground() {
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Glow blobs */}
       <div className="absolute -top-40 -left-20 h-96 w-96 rounded-full bg-teal/30 blur-3xl animate-float-slow" />
-      <div className="absolute top-20 -right-32 h-[28rem] w-[28rem] rounded-full bg-lavender/30 blur-3xl animate-float-slow" style={{ animationDelay: "2s" }} />
-      <div className="absolute bottom-[-10rem] left-1/3 h-[26rem] w-[26rem] rounded-full bg-primary/30 blur-3xl animate-float-slow" style={{ animationDelay: "4s" }} />
+      <div
+        className="absolute top-20 -right-32 h-[28rem] w-[28rem] rounded-full bg-lavender/30 blur-3xl animate-float-slow"
+        style={{ animationDelay: "2s" }}
+      />
+      <div
+        className="absolute bottom-[-10rem] left-1/3 h-[26rem] w-[26rem] rounded-full bg-primary/30 blur-3xl animate-float-slow"
+        style={{ animationDelay: "4s" }}
+      />
 
       {/* Network grid */}
       <svg

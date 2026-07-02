@@ -4,10 +4,7 @@ import { AXES } from "@/lib/axes";
 
 export function AxesOverviewPage() {
   return (
-    <Layout
-      title="All Axes"
-      subtitle="Seven independent neurological decision-support modules."
-    >
+    <Layout title="All Axes" subtitle="Seven independent neurological decision-support modules.">
       <div className="rounded-2xl border bg-gradient-card p-6 shadow-soft">
         <h2 className="text-xl font-semibold tracking-tight">Choose an axis to start</h2>
         <p className="mt-1 text-sm text-muted-foreground max-w-2xl">

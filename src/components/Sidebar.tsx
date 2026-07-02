@@ -1,12 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import {
-  LayoutDashboard,
-  LayoutGrid,
-  FileText,
-  History,
-  Settings,
-  Brain,
-} from "lucide-react";
+import { LayoutDashboard, LayoutGrid, FileText, History, Settings, Brain } from "lucide-react";
 import { AXES } from "@/lib/axes";
 import { cn } from "@/lib/utils";
 
@@ -85,8 +78,8 @@ export function Sidebar() {
 
       <div className="mt-auto p-4 border-t text-[11px] text-muted-foreground">
         <div className="rounded-lg bg-accent/40 p-3 leading-relaxed">
-          <span className="font-medium text-foreground">Decision-support only.</span>{" "}
-          Outputs are interpretation aids, not standalone diagnoses.
+          <span className="font-medium text-foreground">Decision-support only.</span> Outputs are
+          interpretation aids, not standalone diagnoses.
         </div>
       </div>
     </aside>

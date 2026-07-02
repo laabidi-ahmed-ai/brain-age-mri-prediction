@@ -1,11 +1,18 @@
-Django>=4.2,<6.0
-python-dotenv>=1.0
-djangorestframework>=3.14
-django-cors-headers>=4.3
+# brAIn FastAPI backend — Axis 4 brain-age inference service.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+pydantic>=2.7
+pydantic-settings>=2.3
+
+# ML
 numpy>=1.24
-joblib>=1.3
 torch>=2.1,<3.0
 torchvision>=0.16,<1.0
 nibabel>=5.2
 Pillow>=10.0
 opencv-python-headless>=4.8
+
+# Tests
+pytest>=8.0
+httpx>=0.27

@@ -19,8 +19,7 @@ export function ReportExportPanel({
   patient?: { id?: string; age?: number; sex?: "M" | "F" | "Other" };
 }) {
   const [sending, setSending] = useState(false);
-  const showPatientEmail =
-    Boolean(patientEmail?.trim()) && Boolean(axisId) && Boolean(axisTitle);
+  const showPatientEmail = Boolean(patientEmail?.trim()) && Boolean(axisId) && Boolean(axisTitle);
 
   const handleSendPatientEmail = async () => {
     if (!axisId || !axisTitle || !patientEmail?.trim()) return;

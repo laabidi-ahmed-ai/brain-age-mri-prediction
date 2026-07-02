@@ -42,9 +42,7 @@ export function UploadZone({
           "relative cursor-pointer rounded-xl border-2 border-dashed transition-all",
           "bg-card/40 hover:bg-card",
           file ? "p-4 text-left sm:p-5" : "p-8 text-center",
-          drag
-            ? "border-primary bg-accent/40 scale-[1.01]"
-            : "border-border",
+          drag ? "border-primary bg-accent/40 scale-[1.01]" : "border-border",
         )}
       >
         {file ? (
@@ -83,9 +81,7 @@ export function UploadZone({
             <p className="mt-3 text-sm font-medium">
               Drop your file here, or <span className="text-primary">browse</span>
             </p>
-            <p className="mt-1 text-xs text-muted-foreground">
-              {hint ?? `Accepted: ${accept}`}
-            </p>
+            <p className="mt-1 text-xs text-muted-foreground">{hint ?? `Accepted: ${accept}`}</p>
           </>
         )}
         <input

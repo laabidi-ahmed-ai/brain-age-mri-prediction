@@ -46,13 +46,7 @@ export function SignalChart({
               }
             />
           ))}
-          <Line
-            type="monotone"
-            dataKey="v"
-            stroke="var(--primary)"
-            strokeWidth={1.5}
-            dot={false}
-          />
+          <Line type="monotone" dataKey="v" stroke="var(--primary)" strokeWidth={1.5} dot={false} />
         </LineChart>
       </ResponsiveContainer>
     </div>

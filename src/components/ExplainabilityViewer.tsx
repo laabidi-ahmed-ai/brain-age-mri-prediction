@@ -68,8 +68,24 @@ export function ExplainabilityViewer({
         ))}
 
         {/* Crosshair */}
-        <line x1="0" y1="100" x2="200" y2="100" stroke="oklch(0.72 0.10 200 / 0.25)" strokeWidth="0.4" strokeDasharray="2 3" />
-        <line x1="100" y1="0" x2="100" y2="200" stroke="oklch(0.72 0.10 200 / 0.25)" strokeWidth="0.4" strokeDasharray="2 3" />
+        <line
+          x1="0"
+          y1="100"
+          x2="200"
+          y2="100"
+          stroke="oklch(0.72 0.10 200 / 0.25)"
+          strokeWidth="0.4"
+          strokeDasharray="2 3"
+        />
+        <line
+          x1="100"
+          y1="0"
+          x2="100"
+          y2="200"
+          stroke="oklch(0.72 0.10 200 / 0.25)"
+          strokeWidth="0.4"
+          strokeDasharray="2 3"
+        />
       </svg>
 
       <div className="absolute top-2 left-3 text-[10px] uppercase tracking-wider text-white/60">

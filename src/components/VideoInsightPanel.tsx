@@ -4,11 +4,7 @@ import type { TimelineMarker } from "@/lib/mockApi";
 import { cn } from "@/lib/utils";
 
 const sevColor = (s: TimelineMarker["severity"]) =>
-  s === "high"
-    ? "bg-destructive/80"
-    : s === "moderate"
-      ? "bg-[oklch(0.78_0.16_70)]"
-      : "bg-teal";
+  s === "high" ? "bg-destructive/80" : s === "moderate" ? "bg-[oklch(0.78_0.16_70)]" : "bg-teal";
 
 export function VideoInsightPanel({ markers }: { markers: TimelineMarker[] }) {
   const [playing, setPlaying] = useState(false);
@@ -48,10 +44,7 @@ export function VideoInsightPanel({ markers }: { markers: TimelineMarker[] }) {
           {markers.map((m, i) => (
             <div
               key={i}
-              className={cn(
-                "absolute -top-1 h-4 w-1.5 rounded-sm",
-                sevColor(m.severity),
-              )}
+              className={cn("absolute -top-1 h-4 w-1.5 rounded-sm", sevColor(m.severity))}
               style={{ left: `${(m.t / total) * 100}%` }}
               title={`${m.t}s — ${m.label}`}
             />
@@ -61,13 +54,9 @@ export function VideoInsightPanel({ markers }: { markers: TimelineMarker[] }) {
           {markers.map((m, i) => (
             <li key={i} className="flex items-center gap-3 text-sm">
               <span className={cn("h-2 w-2 rounded-full", sevColor(m.severity))} />
-              <span className="tabular-nums text-muted-foreground w-12">
-                {m.t.toFixed(1)}s
-              </span>
+              <span className="tabular-nums text-muted-foreground w-12">{m.t.toFixed(1)}s</span>
               <span>{m.label}</span>
-              <span className="ml-auto text-xs text-muted-foreground capitalize">
-                {m.severity}
-              </span>
+              <span className="ml-auto text-xs text-muted-foreground capitalize">{m.severity}</span>
             </li>
           ))}
         </ul>

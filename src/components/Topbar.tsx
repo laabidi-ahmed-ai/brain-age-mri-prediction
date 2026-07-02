@@ -9,17 +9,12 @@ export function Topbar({ title, subtitle }: { title: string; subtitle?: string }
       <div className="h-full px-6 flex items-center gap-4">
         <div className="min-w-0">
           <h1 className="text-base font-semibold tracking-tight truncate">{title}</h1>
-          {subtitle && (
-            <p className="text-xs text-muted-foreground truncate">{subtitle}</p>
-          )}
+          {subtitle && <p className="text-xs text-muted-foreground truncate">{subtitle}</p>}
         </div>
         <div className="ml-auto flex items-center gap-2">
           <div className="relative hidden md:block">
             <Search className="h-4 w-4 absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              placeholder="Search cases, patients…"
-              className="pl-9 w-72 bg-background"
-            />
+            <Input placeholder="Search cases, patients…" className="pl-9 w-72 bg-background" />
           </div>
           <Button variant="ghost" size="icon" aria-label="Help">
             <HelpCircle className="h-4 w-4" />

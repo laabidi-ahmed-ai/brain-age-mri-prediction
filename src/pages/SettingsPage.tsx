@@ -68,7 +68,8 @@ export function SettingsPage() {
         <Card className="p-6 lg:col-span-3">
           <h3 className="font-semibold">API endpoints (Django backend)</h3>
           <p className="text-xs text-muted-foreground">
-            These are placeholders — colleagues working on each axis can wire them in their own Django app.
+            These are placeholders — colleagues working on each axis can wire them in their own
+            Django app.
           </p>
           <div className="mt-4 grid md:grid-cols-2 gap-2.5">
             {AXES.map((a) => (

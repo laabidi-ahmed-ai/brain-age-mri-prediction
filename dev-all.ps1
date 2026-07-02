@@ -1,19 +1,19 @@
-# One action: opens Django in a NEW window, then starts the UI here.
+# One action: opens FastAPI (uvicorn) in a NEW window, then starts the UI here.
 # Usage:  cd to repo root (folder with backend/ + src/)  ;  .\dev-all.ps1
 $ErrorActionPreference = "Stop"
 $root = $PSScriptRoot
 $backend = Join-Path $root "backend"
 
-if (-not (Test-Path (Join-Path $backend "manage.py"))) {
-    Write-Host "Expected manage.py in: $backend" -ForegroundColor Red
+if (-not (Test-Path (Join-Path $backend "app\main.py"))) {
+    Write-Host "Expected app\main.py in: $backend" -ForegroundColor Red
     exit 1
 }
 
-Write-Host "Starting Django in a separate window (leave it open)..." -ForegroundColor Cyan
+Write-Host "Starting FastAPI (uvicorn) in a separate window (leave it open)..." -ForegroundColor Cyan
 Start-Process powershell -WorkingDirectory $backend -ArgumentList @(
     "-NoExit",
     "-Command",
-    "python manage.py runserver 127.0.0.1:8000"
+    "uvicorn app.main:app --reload --host 127.0.0.1 --port 8000"
 )
 
 Start-Sleep -Seconds 2
@@ -33,5 +33,5 @@ if (-not (Test-Path "node_modules")) {
     npm install
 }
 
-Write-Host "Starting frontend (open the URL below). Ctrl+C stops only the UI; close the Django window separately." -ForegroundColor Cyan
+Write-Host "Starting frontend (open the URL below). Ctrl+C stops only the UI; close the FastAPI window separately." -ForegroundColor Cyan
 npm run dev

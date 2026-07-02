@@ -77,14 +77,13 @@ export function AxisPageTemplate({ axis }: { axis: AxisDef }) {
   };
 
   return (
-    <Layout
-      title={`Axis ${axis.number} · ${axis.title}`}
-      subtitle={axis.purpose}
-    >
+    <Layout title={`Axis ${axis.number} · ${axis.title}`} subtitle={axis.purpose}>
       {/* Hero */}
       <div className="rounded-2xl border bg-gradient-card p-6 lg:p-8 shadow-soft">
         <div className="flex items-start gap-5">
-          <div className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${axis.accent} grid place-items-center shadow-glow text-white`}>
+          <div
+            className={`h-14 w-14 rounded-2xl bg-gradient-to-br ${axis.accent} grid place-items-center shadow-glow text-white`}
+          >
             <Icon className="h-7 w-7" />
           </div>
           <div className="min-w-0">
@@ -99,7 +98,9 @@ export function AxisPageTemplate({ axis }: { axis: AxisDef }) {
             </p>
             <div className="mt-3 flex flex-wrap gap-2 text-xs">
               <span className="px-2 py-0.5 rounded-full bg-accent/60">{axis.acceptedFormats}</span>
-              <span className="px-2 py-0.5 rounded-full bg-accent/60 font-mono">{axis.endpoint}</span>
+              <span className="px-2 py-0.5 rounded-full bg-accent/60 font-mono">
+                {axis.endpoint}
+              </span>
             </div>
           </div>
         </div>
@@ -124,7 +125,8 @@ export function AxisPageTemplate({ axis }: { axis: AxisDef }) {
                   Analyze 7.5 pair (optional)
                 </div>
                 <p className="text-[11px] text-muted-foreground mb-2 leading-relaxed">
-                  If your scan is two files (.hdr + .img): upload one above and the other here — order does not matter. Or zip both as{" "}
+                  If your scan is two files (.hdr + .img): upload one above and the other here —
+                  order does not matter. Or zip both as{" "}
                   <span className="font-mono">basename.hdr</span> +{" "}
                   <span className="font-mono">basename.img</span> and upload the .zip once.
                 </p>
@@ -188,13 +190,16 @@ export function AxisPageTemplate({ axis }: { axis: AxisDef }) {
               <Icon className="h-10 w-10 mx-auto text-bluegray" />
               <div className="mt-3 font-medium">No analysis yet</div>
               <p className="text-sm text-muted-foreground mt-1 max-w-md mx-auto">
-                Upload a {axis.input} file or use demo input to see prediction, confidence and explainability outputs.
+                Upload a {axis.input} file or use demo input to see prediction, confidence and
+                explainability outputs.
               </p>
             </Card>
           )}
 
           {stage === "running" && (
-            <AnalysisStatusCard stage={`${axis.input} preprocessing → model inference → explainability`} />
+            <AnalysisStatusCard
+              stage={`${axis.input} preprocessing → model inference → explainability`}
+            />
           )}
 
           {result && (
@@ -205,9 +210,12 @@ export function AxisPageTemplate({ axis }: { axis: AxisDef }) {
               {result.regions && (
                 <Card className="p-5 space-y-4">
                   <div>
-                    <div className="text-sm font-semibold">Explainability — region contributions</div>
+                    <div className="text-sm font-semibold">
+                      Explainability — region contributions
+                    </div>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      Heatmap overlay highlights regions most informative to the AI-detected pattern.
+                      Heatmap overlay highlights regions most informative to the AI-detected
+                      pattern.
                     </p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -238,7 +246,8 @@ export function AxisPageTemplate({ axis }: { axis: AxisDef }) {
                   <div>
                     <div className="text-sm font-semibold">Functional connectivity network</div>
                     <p className="text-xs text-muted-foreground mt-0.5">
-                      Edge weight reflects estimated connectivity strength between resting-state networks.
+                      Edge weight reflects estimated connectivity strength between resting-state
+                      networks.
                     </p>
                   </div>
                   <NetworkGraph network={result.network} />

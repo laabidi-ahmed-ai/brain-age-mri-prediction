@@ -4,11 +4,7 @@ import type { AnalysisResult } from "@/lib/mockApi";
  * Lightweight network graph (no extra deps).
  * Renders nodes on a circle and weighted edges between them.
  */
-export function NetworkGraph({
-  network,
-}: {
-  network: NonNullable<AnalysisResult["network"]>;
-}) {
+export function NetworkGraph({ network }: { network: NonNullable<AnalysisResult["network"]> }) {
   const { nodes, edges } = network;
   const cx = 150;
   const cy = 150;
@@ -50,13 +46,7 @@ export function NetworkGraph({
           const p = positions[n];
           return (
             <g key={n}>
-              <circle
-                cx={p.x}
-                cy={p.y}
-                r={18}
-                fill="var(--primary)"
-                className="drop-shadow"
-              />
+              <circle cx={p.x} cy={p.y} r={18} fill="var(--primary)" className="drop-shadow" />
               <text
                 x={p.x}
                 y={p.y + 4}

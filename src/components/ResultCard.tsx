@@ -37,9 +37,7 @@ export function ResultCard({ result }: { result: AnalysisResult }) {
                 {m.label}
               </div>
               <div className="text-lg font-semibold mt-0.5">{m.value}</div>
-              {m.hint && (
-                <div className="text-[11px] text-muted-foreground mt-0.5">{m.hint}</div>
-              )}
+              {m.hint && <div className="text-[11px] text-muted-foreground mt-0.5">{m.hint}</div>}
             </div>
           ))}
         </div>

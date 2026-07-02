@@ -5,10 +5,7 @@ import { useEffect, useState } from "react";
 export function AnalysisStatusCard({ stage }: { stage: string }) {
   const [pct, setPct] = useState(8);
   useEffect(() => {
-    const id = setInterval(
-      () => setPct((p) => (p < 92 ? p + Math.random() * 6 : p)),
-      400,
-    );
+    const id = setInterval(() => setPct((p) => (p < 92 ? p + Math.random() * 6 : p)), 400);
     return () => clearInterval(id);
   }, []);
   return (
