@@ -18,7 +18,7 @@ code{background:#f0f0f0;padding:0.1em 0.35em;border-radius:4px;} a{color:#2563eb
 <p>This process is the <strong>REST API</strong>. There is no full web app at <code>/</code> by design.</p>
 <ul>
 <li><a href="/api/health/">GET /api/health/</a> — quick JSON check that the server is up.</li>
-<li><code>POST /api/send-report-email/</code> — JSON body; emails patient HTML summary (console backend in dev — see <code>backend/README.md</code>).</li>
+<li><code>POST /api/send-report-email/</code> — JSON body; emails patient HTML summary (console backend in dev — see "Patient email" in the project root README.md).</li>
 <li>Axis endpoints are under <code>/api/axisN-…/analyze/</code> (POST, multipart). Example:
   <code>curl -X POST http://127.0.0.1:8000/api/axis4-brain-aging/analyze/ -F 'metadata={"demo":true}'</code></li>
 </ul>

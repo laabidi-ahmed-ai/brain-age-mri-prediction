@@ -105,7 +105,8 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
 ML_MODELS_DIR = BASE_DIR  # each app keeps its model under <app>/ml/
 
 # --- Email (patient report) ---
-# Default: print messages to the console (no SMTP). See backend/README.md for Gmail/SendGrid.
+# Default: print messages to the console (no SMTP). See "Patient email" in the
+# project root README.md for Gmail/SendGrid setup.
 EMAIL_BACKEND = os.environ.get(
     "DJANGO_EMAIL_BACKEND",
     "django.core.mail.backends.console.EmailBackend",

@@ -1,6 +1,7 @@
 """MRI / slice preprocessing aligned with notebook 2 (volume z-score, 3ch, 224, [-1,1] normalize)."""
 from __future__ import annotations
 
+import gc
 import io
 import tempfile
 import zipfile
@@ -70,14 +71,24 @@ def load_nifti_slice(
     ``nibabel.load`` needs a real path (it cannot read a ``BytesIO``), so the
     upload is written to a temp file with the correct suffix — gzip is detected
     from the magic bytes so both ``.nii`` and ``.nii.gz`` work.
+
+    On Windows, ``TemporaryDirectory`` cleanup fails with ``PermissionError``
+    if nibabel still holds the file open (its default loader mmaps uncompressed
+    ``.nii`` files). To avoid that: load with ``mmap=False``, force a real copy
+    of the array data, then explicitly uncache/dereference the image and force
+    garbage collection — all while still inside the ``with`` block — so no
+    nibabel/file reference outlives the temp directory.
     """
     is_gz = file_bytes[:2] == b"\x1f\x8b"
     suffix = ".nii.gz" if is_gz else ".nii"
     with tempfile.TemporaryDirectory() as tmp:
         path = Path(tmp) / f"upload{suffix}"
         path.write_bytes(file_bytes)
-        img = nib.load(str(path))
-        data = np.asanyarray(img.get_fdata(), dtype=np.float64)
+        img = nib.load(str(path), mmap=False)
+        data = np.array(img.get_fdata(), dtype=np.float64, copy=True)
+        img.uncache()
+        del img
+        gc.collect()
     return volume_to_axial_slice(data, slice_index)
 
 
