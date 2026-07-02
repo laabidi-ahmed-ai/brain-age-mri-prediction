@@ -1,4 +1,4 @@
-# Brain Age Prediction from MRI using Deep Learning (OASIS)
+# brAIn — Brain Age Prediction from MRI using Deep Learning (OASIS)
 
 Deep learning project for estimating a subject's age directly from brain MRI slices using convolutional neural networks and transfer learning.  
 Developed as part of a machine learning project at **Esprit School of Engineering**, with a focus on medical imaging and deep learning applications.
