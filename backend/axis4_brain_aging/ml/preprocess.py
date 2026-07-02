@@ -65,10 +65,19 @@ def load_nifti_slice(
     file_bytes: bytes,
     slice_index: Optional[int] = None,
 ) -> Tuple[torch.Tensor, np.ndarray]:
-    """Single-file NIfTI."""
-    bio = io.BytesIO(file_bytes)
-    img = nib.load(bio)
-    data = np.asanyarray(img.get_fdata(), dtype=np.float64)
+    """Single-file NIfTI (.nii or .nii.gz).
+
+    ``nibabel.load`` needs a real path (it cannot read a ``BytesIO``), so the
+    upload is written to a temp file with the correct suffix — gzip is detected
+    from the magic bytes so both ``.nii`` and ``.nii.gz`` work.
+    """
+    is_gz = file_bytes[:2] == b"\x1f\x8b"
+    suffix = ".nii.gz" if is_gz else ".nii"
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / f"upload{suffix}"
+        path.write_bytes(file_bytes)
+        img = nib.load(str(path))
+        data = np.asanyarray(img.get_fdata(), dtype=np.float64)
     return volume_to_axial_slice(data, slice_index)
 
 
