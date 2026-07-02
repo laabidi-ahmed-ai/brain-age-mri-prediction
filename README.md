@@ -1,4 +1,4 @@
-# Brain-Age Estimation from MRI (AI Decision Support)
+# brAIn — Brain-Age Estimation from MRI (AI Decision Support)
 
 An end-to-end deep-learning application that predicts a subject's **brain age**
 directly from an MRI scan, quantifies the **gap** between that estimate and the
