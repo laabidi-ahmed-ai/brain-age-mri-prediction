@@ -15,11 +15,6 @@ end-to-end React + FastAPI research prototype.
 > preprocessing pipeline, Grad-CAM explainability, and API. Teammates own the
 > other six axes.
 
-<!-- 📸 Insert screenshot here: prediction result view -->
-
-![Brain-age prediction result](docs/screenshots/axis4-prediction.png)
-_Predicted brain age with an approximate confidence band and the brain–chronology gap (Δ)._
-
 ---
 
 ## What it does
@@ -67,9 +62,10 @@ as a plain-language summary.
 - **Honest by design.** Every output is labelled a research prototype — not a
   medical diagnosis.
 
-<!-- 📸 Insert screenshot here: Grad-CAM explainability + region contributions -->
+<img width="1024" height="486" alt="brain_axis4_upload_results" src="https://github.com/user-attachments/assets/fe07c5eb-7024-4ccd-8759-78f495f6d563" />
+<img width="1024" height="486" alt="brain_axis4_gradcam_ui" src="https://github.com/user-attachments/assets/3d3644a1-f1f6-4c0b-9a30-57d7e9928695" />
 
-![Grad-CAM explainability](docs/screenshots/axis4-gradcam.png)
+
 _Grad-CAM heatmap over the preprocessed MRI slice, with coarse anterior/central/posterior Grad-CAM mass summaries._
 
 ---
