@@ -16,7 +16,9 @@ end-to-end React + Django research prototype.
 > other six axes.
 
 <!-- 📸 Insert screenshot here: prediction result view -->
-![Brain-age prediction result](docs/screenshots/axis4-prediction.png)
+<img width="1024" height="486" alt="brain_axis4_upload_results" src="https://github.com/user-attachments/assets/2935f187-7cb4-431e-b30f-ebfc165ca3a0" />
+<img width="1024" height="486" alt="brain_axis4_gradcam_ui" src="https://github.com/user-attachments/assets/5387a7cf-98e7-4471-bb3d-b114e6067302" />
+
 *Predicted brain age with an approximate confidence band and the brain–chronology gap (Δ).*
 
 ---
