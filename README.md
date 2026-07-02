@@ -16,6 +16,24 @@ Developed as part of a machine learning project at **Esprit School of Engineerin
 - **Note :** See workflow diagrams below for experiment logic.
 
 ---
+## 🚀 Start Here
+
+This repository documents the complete journey from model research to application deployment.
+
+| Branch | Purpose | Contents |
+|---|---|---|
+| [`fastapi-migration`](https://github.com/laabidi-ahmed-ai/brain-age-mri-prediction/tree/fastapi-migration) | **Recommended — end-to-end application** | FastAPI, React, PyTorch inference, Grad-CAM, tests, logging and health endpoint |
+| `main` | Model research | Model comparison, EfficientNet refinement, evaluation and training notebooks |
+| [`demo`](https://github.com/laabidi-ahmed-ai/brain-age-mri-prediction/tree/demo) | Legacy application | Earlier React + Django REST implementation |
+
+### Recommended reviewer path
+
+1. Open the **FastAPI application branch**.
+2. Read its architecture and setup instructions.
+3. Review the API tests and ML inference service.
+4. Use `main` only for training methodology and experimental evidence.
+
+Research notebooks → trained checkpoint → FastAPI inference → React interface
 
 ## Problem Overview
 
